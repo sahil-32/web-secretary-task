@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse " id="mynavbar">
+					<ul class="nav navbar-nav">
+						<li><a href="{% url 'Dgsec' %}">Department General Secretary</a></li>
+                        <li><a href="{% url 'Gsec' %}">General Secretary</a></li>
+                        <li><a href="{% url 'pgrep' %}">PG Representative</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>
+
+		<div class="container">
+			{% block main %}{% endblock %}
+		</div>
+		<script>
+			function confirm(){
+				var x = document.getElementsByName('poll');
+				for(i = 0; i < x.length; i++) { 
+                if(x[i].checked) 
+                document.getElementById("confirm_box").innerHTML
+                        = "Are You Sure You Want To Vote "+x[i].value; 
+            } 
+			}
+		</script>
+	</body>
+</html>

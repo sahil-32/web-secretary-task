@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block main %}
+<div class="row" style="display: relative;">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Available Polls</h3>
+            </div>
+            <ul class="list-group">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    
+                    {% for applicant in applicant %}
+                    <li class="list-group-item">
+                        <img src="https://i.pinimg.com/474x/bc/d4/ac/bcd4ac32cc7d3f98b5e54bde37d6b09e.jpg" height="130" width="130" >
+                        <div class="name">
+                            <h1>{{ applicant.name }}</h1>
+                            <div class="manifesto">
+                                <a href="#" class="btn btn-primary" id="manifesto">View Manifesto</a>
+                            </div>
+                        </div>
+                        <input type="radio" name="poll" value="{{ applicant.name }}" id="myRadio" >
+                    </li>
+                     {% endfor %}
+
+                     <button type="button" class="btn vote btn-primary" data-toggle="modal" data-target="#myModal" onclick="confirm()">Vote</button>
+                     <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                        
+                          <!-- Modal content-->
+                          <div class="modal-content">
+                            <div class="modal-body" id="confirm_box" style="text-align: center;">
+                              <h1>Some text</h1>
+                            </div>
+                            
+                            <div class="modal-footer" style="text-align: center;">
+                                <button type="submit" class="btn vote btn-success" >Yes</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+
+
+                </form>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %}

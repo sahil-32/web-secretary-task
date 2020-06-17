@@ -1,0 +1,23 @@
+.vote{
+  margin-left: 15px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.name{
+display: inline-block;
+margin-left: 10px;
+margin-top: -15px;
+}
+input{
+    position: absolute;
+    right:15px;
+    top:65px;
+}
+#manifesto{
+    margin-bottom: -50px;
+}
+
+.modal-footer{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
